@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.2-rc1'
+    }
+}
+
+apply plugin: 'fatjar'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+
+  compile(
+    "org.eclipse.jetty:jetty-server:7.6.10.v20130312",
+    "org.eclipse.jetty:jetty-servlet:7.6.10.v20130312",
+
+  )
+}
+
+//
+//jar {
+//    //create a fat jar of the dependencies
+//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//}
+//
